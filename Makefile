@@ -1,6 +1,7 @@
 ODIR = obj
-SRCS = main.c
+SRCS = ${wildcard src/*.c} ${wildcard src/**/*.c}
 OBJS = ${patsubst %.c, ${ODIR}/%.o, ${SRCS}}
+INC = src
 CC = cc
 CC_FLAGS = -Wall -Werror -Wextra -Imlx
 RM = rm -rf
@@ -9,12 +10,12 @@ NAME = prog
 
 ${ODIR}/%.o: %.c
 	@mkdir -p ${@D}
-	CC ${CC_FLAGS} -c $< -o $@
+	${CC} ${CC_FLAGS} -c $< -o $@ -I ${INC}
 
 all: ${NAME}
 
 $(NAME): ${OBJS}
-	${CC} ${OBJS} -Lmlx -lmlx -framework OpenGL -framework AppKit -o ${NAME}
+	${CC} ${OBJS} -lmlx -framework OpenGL -framework AppKit -o ${NAME}
 
 clean:
 	${RM} ${ODIR}
