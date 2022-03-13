@@ -6,7 +6,7 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:09:28 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/02/27 18:26:49 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/13 21:44:23 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,6 @@ void	ft_mlx_pixel_put(t_img *img, int x, int y, int color)
 	char	*dst;
 
 	dst = img->pixels + (
-			x * img->line_length + y * (img->bits_per_pixel / 8));
+			y * img->line_length + x * (img->bits_per_pixel / 8));
 	*(unsigned int *)dst = color;
 }

@@ -6,7 +6,7 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:10:05 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/13 20:53:54 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/13 21:53:10 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,10 @@ typedef struct s_data
 {
 	void	*mlx_ptr;
 	void	*win_ptr;
-	t_img	img;
+	t_img	*img;
 	double	win_height;
 	double	win_width;
+	double	zoom;
 }	t_data;
 
 #endif

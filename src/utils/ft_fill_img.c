@@ -6,7 +6,7 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:40:23 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/13 20:59:09 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/13 22:53:09 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ void ft_fill_img(double a, double b, t_data *data)
 	i = a;
 	r = b;
 
-	a = map(a, 0, data->win_width, -2, 2);
-	b = map(b, 0, data->win_height, -2, 2);
+	a = map(a, 0, data->win_width, -2 + data->zoom, 2 - data->zoom);
+	b = map(b, 0, data->win_height, -2 + data->zoom, 2 - data->zoom);
 	x = a;
 	y = b;
 	nIter = 0;
@@ -51,7 +51,7 @@ void ft_fill_img(double a, double b, t_data *data)
 		nIter++;
 	}
 	if (nIter == maxIterations)// inside
-		mlx_pixel_put(data->img.ptr, data->win_ptr,i, r, 0);
+		mlx_pixel_put(data->img->ptr, data->win_ptr,i, r, 0);
 	else
-		mlx_pixel_put(data->img.ptr, data->win_ptr,i, r, 0x49FA03 * nIter);
+		mlx_pixel_put(data->img->ptr, data->win_ptr,i, r, 0x49FA03 * nIter);
 }
