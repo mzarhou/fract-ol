@@ -6,7 +6,7 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:11:08 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/02/27 18:30:56 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/13 20:58:22 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,28 +14,24 @@
 #include <mlx.h>
 
 void ft_new_image(
-	void *mlx,
-	t_img *img,
-	int win_height,
-	int win_width,
-	void (*fill)(double x, double y, int height, int width, t_img *img, t_data *data),
-	t_data *data
+	t_data *data,
+	void (*fill)(double x, double y, t_data *data)
 ) {
 	int x;
 	int y;
 
-	img->ptr = mlx_new_image(mlx, win_height, win_width);
-	img->pixels = mlx_get_data_addr(
-		img->ptr,
-		&img->bits_per_pixel,
-		&img->line_length,
-		&img->endian
+	data->img.ptr = mlx_new_image(data->mlx_ptr, data->win_height, data->win_width);
+	data->img.pixels = mlx_get_data_addr(
+		data->img.ptr,
+		&data->img.bits_per_pixel,
+		&data->img.line_length,
+		&data->img.endian
 	);
 	y = -1;
-	while (++y < win_height)
+	while (++y < data->win_height)
 	{
 		x = -1;
-		while (++x < win_width)
-			fill(x, y, win_height, win_width, img, data);
+		while (++x < data->win_width)
+			fill(x, y, data);
 	}
 }

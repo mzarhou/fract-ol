@@ -6,7 +6,7 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:40:23 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/02/27 18:37:09 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/13 20:59:09 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ double map(double value, double a, double b, double c, double d)
 	return c + ((value - a) * (d - c) / (b - a));
 }
 
-void ft_fill_img(double a, double b, int height, int width, t_img *img, t_data *data)
+void ft_fill_img(double a, double b, t_data *data)
 {
 	const int	maxIterations = 1000;
 	int			nIter;
@@ -33,8 +33,8 @@ void ft_fill_img(double a, double b, int height, int width, t_img *img, t_data *
 	i = a;
 	r = b;
 
-	a = map(a, 0, width, -2, 2);
-	b = map(b, 0, height, -2, 2);
+	a = map(a, 0, data->win_width, -2, 2);
+	b = map(b, 0, data->win_height, -2, 2);
 	x = a;
 	y = b;
 	nIter = 0;
@@ -51,7 +51,7 @@ void ft_fill_img(double a, double b, int height, int width, t_img *img, t_data *
 		nIter++;
 	}
 	if (nIter == maxIterations)// inside
-		mlx_pixel_put(img->ptr, data->win_ptr,i, r, 0);
+		mlx_pixel_put(data->img.ptr, data->win_ptr,i, r, 0);
 	else
-		mlx_pixel_put(img->ptr, data->win_ptr,i, r, 0x49FA03 * nIter);
+		mlx_pixel_put(data->img.ptr, data->win_ptr,i, r, 0x49FA03 * nIter);
 }
