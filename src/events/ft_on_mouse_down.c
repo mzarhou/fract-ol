@@ -6,13 +6,12 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:05:04 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/16 21:22:15 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/16 21:47:40 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "events/events.h"
 #include "utils/utils.h"
-#include <stdio.h>
 #include <mlx.h>
 #include "fract_ol.h"
 

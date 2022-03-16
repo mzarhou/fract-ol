@@ -6,12 +6,11 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:40:23 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/16 21:10:15 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/16 21:48:22 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
-#include <stdio.h>
 #include "utils/utils.h"
 #include "mlx.h"
 

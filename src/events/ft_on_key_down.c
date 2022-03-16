@@ -6,13 +6,12 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 20:18:38 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/16 21:17:45 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/16 21:47:46 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract_ol.h"
 #include "events/events.h"
-#include <stdio.h>
 
 #define SPACE_KEYCODE 49
 #define I_KEYCODE 34
