@@ -6,7 +6,7 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:10:05 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/16 20:17:00 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/16 21:22:08 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,8 @@ typedef struct s_data
 	double	x;
 	double	y;
 	int		color;
+	int		max_iterations;
+	void (*ft_fill)(double x, double y, struct s_data *data);
 }	t_data;
 
 void ft_render(t_data* data);

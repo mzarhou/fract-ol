@@ -6,7 +6,7 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:05:04 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/16 20:57:06 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/16 21:22:15 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,6 @@
 
 int	ft_on_mouse_down(int keycode, int x, int y, t_data *data)
 {
-	static int is_rendering = 0;
-	if (is_rendering)
-		return 0;
-	is_rendering = 1;
 	if (keycode < 4)
 		return (0);
 	data->x = ft_map(x, 0, data->win_width, data->x - (data->zoom * 0.128), data->x + (data->zoom * 0.128));
@@ -32,6 +28,5 @@ int	ft_on_mouse_down(int keycode, int x, int y, t_data *data)
 		data->zoom += data->zoom / 10;
 	}
 	ft_render(data);
-	is_rendering = 0;
 	return (0);
 }

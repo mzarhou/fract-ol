@@ -6,7 +6,7 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:40:23 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/16 20:37:03 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/16 21:10:15 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ double ft_map(double value, double a, double b, double c, double d)
 
 void ft_fill_img(double a, double b, t_data *data)
 {
-	const int	maxIterations = 50;
 	int			nIter;
 	int			i, r;
 	double		x;
@@ -40,7 +39,7 @@ void ft_fill_img(double a, double b, t_data *data)
 	nIter = 0;
 	xx = 0;
 	yy =0;
-	while (nIter < maxIterations)
+	while (nIter < data->max_iterations)
 	{
 		xx = x * x - y * y + a;
 		yy = 2 * x * y + b;
@@ -50,7 +49,7 @@ void ft_fill_img(double a, double b, t_data *data)
 		if (x * x + y * y > 4)
 			break;
 	}
-	if (nIter == maxIterations)// inside
+	if (nIter == data->max_iterations)// inside
 		ft_mlx_pixel_put(&data->img,i, r, 0);
 	else
 		ft_mlx_pixel_put(&data->img,i, r, data->color * nIter);
