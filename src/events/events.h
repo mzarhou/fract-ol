@@ -6,7 +6,7 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:05:19 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/13 21:38:08 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/16 19:46:26 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ enum e_EVENTS
 	ON_DESTROY = 17
 };
 int		ft_on_destroy(void);
-int		ft_on_mouse_down(int keycode, t_data *data);
+int		ft_on_mouse_down(int keycode, int x, int y, t_data *data);
 int		ft_on_mouse_up(int keycode, void *data);
 void	ft_register_events(t_data *data);
 #endif

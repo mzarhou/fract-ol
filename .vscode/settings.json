@@ -3,6 +3,26 @@
 	"files.associations": {
 		"events.h": "c",
 		"utils.h": "c",
-		"fract_ol.h": "c"
+		"fract_ol.h": "c",
+		"memory": "c",
+		"signal.h": "c",
+		"__bit_reference": "c",
+		"__functional_base": "c",
+		"__node_handle": "c",
+		"algorithm": "c",
+		"atomic": "c",
+		"bitset": "c",
+		"chrono": "c",
+		"__memory": "c",
+		"optional": "c",
+		"functional": "c",
+		"iterator": "c",
+		"limits": "c",
+		"locale": "c",
+		"ratio": "c",
+		"system_error": "c",
+		"tuple": "c",
+		"type_traits": "c",
+		"vector": "c"
 	}
 }
