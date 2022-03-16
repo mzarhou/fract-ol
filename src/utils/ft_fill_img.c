@@ -6,7 +6,7 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:40:23 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/16 21:48:22 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/16 22:10:08 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,37 +19,43 @@ double ft_map(double value, double a, double b, double c, double d)
 	return c + ((value - a) * (d - c) / (b - a));
 }
 
-void ft_fill_img(double a, double b, t_data *data)
+int	ft_iterate(const double maped_a, const double maped_b, double max_iterations)
 {
-	int			nIter;
-	int			i, r;
+	int			nb_iter;
 	double		x;
 	double		xx;
 	double		y;
 	double		yy;
 
-	i = a;
-	r = b;
-
-	a = ft_map(a, 0, data->win_width, data->x - data->zoom, data->x + data->zoom);
-	b = ft_map(b, 0, data->win_height, data->y - data->zoom, data->y + data->zoom);
-	x = a;
-	y = b;
-	nIter = 0;
+	x = maped_a;
+	y = maped_b;
+	nb_iter = 0;
 	xx = 0;
 	yy =0;
-	while (nIter < data->max_iterations)
+	while (nb_iter < max_iterations)
 	{
-		xx = x * x - y * y + a;
-		yy = 2 * x * y + b;
+		xx = x * x - y * y + maped_a;
+		yy = 2 * x * y + maped_b;
 		x = xx;
 		y = yy;
-		nIter++;
+		nb_iter++;
 		if (x * x + y * y > 4)
 			break;
 	}
-	if (nIter == data->max_iterations)// inside
-		ft_mlx_pixel_put(&data->img,i, r, 0);
+	return (nb_iter);
+}
+
+void ft_fill_img(const double a, const double b, t_data *data)
+{
+	int			nb_iterations;
+	double		maped_a;
+	double		maped_b;
+
+	maped_a = ft_map(a, 0, data->win_width, data->x - data->zoom, data->x + data->zoom);
+	maped_b = ft_map(b, 0, data->win_height, data->y - data->zoom, data->y + data->zoom);
+	nb_iterations = ft_iterate(maped_a, maped_b, data->max_iterations);
+	if (nb_iterations == data->max_iterations)// inside
+		ft_mlx_pixel_put(&data->img,a, b, 0);
 	else
-		ft_mlx_pixel_put(&data->img,i, r, data->color * nIter);
+		ft_mlx_pixel_put(&data->img,a, b, data->color * nb_iterations);
 }
