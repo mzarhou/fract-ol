@@ -24,6 +24,7 @@
 		"tuple": "c",
 		"type_traits": "c",
 		"vector": "c",
-		"mlx.h": "c"
+		"mlx.h": "c",
+		"sets.h": "c"
 	}
 }

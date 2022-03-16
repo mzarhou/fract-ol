@@ -6,26 +6,17 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:09:28 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/16 18:57:06 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/16 23:20:11 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "utils/utils.h"
 
-// void	ft_mlx_pixel_put(t_img *img, int x, int y, int color)
-// {
-// 	char	*dst;
-
-// 	dst = img->pixels + (
-// 			y * img->line_length + x * (img->bits_per_pixel / 8));
-// 	*(unsigned int *)dst = color;
-// }
-
 void	ft_mlx_pixel_put(t_img *img, int x, int y, int color)
 {
-	char	*pixel;
+	char	*dst;
 
-	pixel = img->pixels + (y * img->line_length
+	dst = img->pixels + (y * img->line_length
 			+ x * (img->bits_per_pixel / 8));
-	*(unsigned int *)pixel = color;
+	*(unsigned int *)dst = color;
 }
