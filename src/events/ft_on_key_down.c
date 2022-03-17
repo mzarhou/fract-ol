@@ -6,7 +6,7 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 20:18:38 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/17 02:42:55 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/17 03:16:10 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@
 #define D_KEYCODE 2
 #define R_KEYCODE 15
 #define ESC_KEYCODE 53
+#define ARROW_LEFT 123
+#define ARROW_RIGHT 124
+#define ARROW_DOWN 125
+#define ARROW_UP 126
+
 
 void	ft_change_color(t_data *data)
 {
@@ -56,6 +61,19 @@ void	ft_reset(t_data *data)
 	ft_render(data);
 }
 
+void	ft_move(int keycode, t_data *data)
+{
+	if (keycode == ARROW_DOWN)
+		data->origin.b += data->zoom / 10;
+	else if (keycode == ARROW_UP)
+		data->origin.b -= data->zoom / 10;
+	else if (keycode == ARROW_LEFT)
+		data->origin.a -= data->zoom / 10;
+	else if (keycode == ARROW_RIGHT)
+		data->origin.a += data->zoom / 10;
+	ft_render(data);
+}
+
 int	ft_on_key_down(int keycode, t_data *data)
 {
 	if (keycode == SPACE_KEYCODE)
@@ -75,6 +93,8 @@ int	ft_on_key_down(int keycode, t_data *data)
 			data->max_iterations -= 50;
 		ft_render(data);
 	}
+	if (keycode >= ARROW_LEFT && keycode <= ARROW_UP)
+		ft_move(keycode, data);
 	if (keycode == ESC_KEYCODE)
 		exit(0);
 	return (0);
