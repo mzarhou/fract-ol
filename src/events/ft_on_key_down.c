@@ -6,7 +6,7 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 20:18:38 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/17 03:16:10 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/17 03:31:05 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@
 #define ARROW_RIGHT 124
 #define ARROW_DOWN 125
 #define ARROW_UP 126
-
 
 void	ft_change_color(t_data *data)
 {
