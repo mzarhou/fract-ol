@@ -6,7 +6,7 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:11:20 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/16 23:43:22 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/17 19:45:46 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,6 @@ void	ft_new_image(
 void	ft_mlx_pixel_put(t_img *img, int x, int y, int color);
 void	ft_pixel_coloring(const double a, const double b, t_data *data);
 double	ft_map(double value, t_interval from, t_interval to);
+int		ft_atoi(const char *str);
 
 #endif
