@@ -6,7 +6,7 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 16:28:46 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/17 02:10:15 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/17 03:28:49 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 #include "unistd.h"
 #include "sets/sets.h"
 #include <mlx.h>
-
 
 void	ft_render(t_data *data)
 {
@@ -54,7 +53,6 @@ int	main(void)
 	t_data	data;
 
 	ft_init_data(&data);
-
 	data.mlx_ptr = mlx_init();
 	data.win_ptr = mlx_new_window(data.mlx_ptr, data.win_width,
 			data.win_height, "FRACT-OL");
