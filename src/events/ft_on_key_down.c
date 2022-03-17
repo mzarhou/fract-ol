@@ -6,19 +6,21 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 20:18:38 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/17 02:10:33 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/17 02:42:55 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fract_ol.h"
 #include "events/events.h"
 #include "sets/sets.h"
+#include <stdlib.h>
 
 #define SPACE_KEYCODE 49
 #define I_KEYCODE 34
 #define S_KEYCODE 1
 #define D_KEYCODE 2
 #define R_KEYCODE 15
+#define ESC_KEYCODE 53
 
 void	ft_change_color(t_data *data)
 {
@@ -73,5 +75,7 @@ int	ft_on_key_down(int keycode, t_data *data)
 			data->max_iterations -= 50;
 		ft_render(data);
 	}
+	if (keycode == ESC_KEYCODE)
+		exit(0);
 	return (0);
 }
