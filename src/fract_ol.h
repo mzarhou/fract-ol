@@ -6,12 +6,13 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:10:05 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/17 02:13:41 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/17 03:27:44 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACT_OL_H
 # define FRACT_OL_H
+
 typedef struct s_img
 {
 	void	*ptr;
@@ -38,9 +39,13 @@ typedef struct s_data
 	t_coordinates	origin;
 	int				color;
 	int				max_iterations;
-	int				(*iterate)(const double maped_x, const double maped_y, const struct s_data *data);
+	int				(*iterate)(
+			const double maped_x,
+			const double maped_y,
+			const struct s_data *data
+			);
 }	t_data;
 
-void ft_render(t_data* data);
+void	ft_render(t_data *data);
 
 #endif
