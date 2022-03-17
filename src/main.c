@@ -6,7 +6,7 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 16:28:46 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/17 04:00:05 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/17 19:30:44 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,15 @@ void	ft_init_data(t_data *data)
 	data->color = 0x581b98;
 	data->julia_data = (t_coordinates){-0.70176, -0.3842};
 	data->julia_set_live = 0;
+	data->mlx_ptr = mlx_init();
+	data->win_ptr = mlx_new_window(data->mlx_ptr, data->win_width,
+			data->win_height, "FRACT-OL");
+	data->img.ptr = mlx_new_image(data->mlx_ptr,
+			data->win_width, data->win_height);
+	data->img.pixels = mlx_get_data_addr(
+			data->img.ptr, &data->img.bits_per_pixel, &data->img.line_length,
+			&data->img.endian
+			);
 }
 
 int	main(void)
@@ -56,14 +65,6 @@ int	main(void)
 	t_data	data;
 
 	ft_init_data(&data);
-	data.mlx_ptr = mlx_init();
-	data.win_ptr = mlx_new_window(data.mlx_ptr, data.win_width,
-			data.win_height, "FRACT-OL");
-	data.img.ptr = mlx_new_image(data.mlx_ptr, data.win_width, data.win_height);
-	data.img.pixels = mlx_get_data_addr(
-			data.img.ptr, &data.img.bits_per_pixel, &data.img.line_length,
-			&data.img.endian
-			);
 	ft_register_events(&data);
 	ft_render(&data);
 	mlx_loop(data.mlx_ptr);
