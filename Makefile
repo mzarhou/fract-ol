@@ -6,7 +6,7 @@ CC = cc
 CC_FLAGS = -Wall -Werror -Wextra -Imlx
 RM = rm -rf
 
-NAME = prog
+NAME = fract-ol
 
 ${ODIR}/%.o: %.c
 	@mkdir -p ${@D}
