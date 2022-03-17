@@ -6,7 +6,7 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 20:18:38 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/17 18:55:02 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/17 19:17:14 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,7 @@ void	ft_change_set(t_data *data)
 {
 	static void	*sets[] = {
 		ft_mandelbrot_iterate,
+		ft_burning_ship_iterate,
 		ft_julia_set_iterate
 	};
 	static int	set_index = 0;
