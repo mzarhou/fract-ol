@@ -6,7 +6,7 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 20:18:38 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/17 03:46:05 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/17 04:15:47 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 #include "events/events.h"
 #include "sets/sets.h"
 #include <stdlib.h>
+#include "printf.h"
 
 #define SPACE_KEYCODE 49
 #define I_KEYCODE 34
 #define S_KEYCODE 1
 #define D_KEYCODE 2
 #define R_KEYCODE 15
+#define E_KEYCODE 14
 #define ESC_KEYCODE 53
 #define ARROW_LEFT 123
 #define ARROW_RIGHT 124
@@ -63,6 +65,8 @@ void	ft_reset(t_data *data)
 	data->zoom = 2;
 	data->origin = (t_coordinates){0, 0};
 	data->max_iterations = 50;
+	data->julia_data = (t_coordinates){-0.70176, -0.3842};
+	data->julia_set_live = 0;
 	ft_render(data);
 }
 
@@ -77,6 +81,16 @@ void	ft_move(int keycode, t_data *data)
 	else if (keycode == ARROW_RIGHT)
 		data->origin.a += data->zoom / 10;
 	ft_render(data);
+}
+
+void	ft_toggle_julia_set_liv_mode(t_data *data)
+{
+	if (data->iterate != ft_julia_set_iterate)
+		return ;
+	if (data->julia_set_live == 1)
+		data->julia_set_live = 0;
+	else
+		data->julia_set_live = 1;
 }
 
 int	ft_on_key_down(int keycode, t_data *data)
@@ -98,6 +112,8 @@ int	ft_on_key_down(int keycode, t_data *data)
 			data->max_iterations -= 50;
 		ft_render(data);
 	}
+	if (keycode == E_KEYCODE)
+		ft_toggle_julia_set_liv_mode(data);
 	if (keycode >= ARROW_LEFT && keycode <= ARROW_UP)
 		ft_move(keycode, data);
 	if (keycode == ESC_KEYCODE)

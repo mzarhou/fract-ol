@@ -6,7 +6,7 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/14 18:10:05 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/17 03:48:48 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/17 03:59:55 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ typedef struct s_data
 	t_coordinates	origin;
 	int				color;
 	t_coordinates	julia_data;
+	int				julia_set_live;
 	int				max_iterations;
 	int				(*iterate)(
 			const double maped_x,
