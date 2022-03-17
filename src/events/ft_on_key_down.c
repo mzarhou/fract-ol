@@ -6,7 +6,7 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 20:18:38 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/17 01:12:52 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/17 01:25:11 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 #define I_KEYCODE 34
 #define S_KEYCODE 1
 #define D_KEYCODE 2
+#define R_KEYCODE 15
 
 void	ft_change_color(t_data *data)
 {
@@ -45,10 +46,21 @@ void	ft_change_set(t_data *data)
 	ft_render(data);
 }
 
+void	ft_reset(t_data *data)
+{
+	data->zoom = 2;
+	data->x = 0;
+	data->y = 0;
+	data->max_iterations = 50;
+	ft_render(data);
+}
+
 int	ft_on_key_down(int keycode, t_data *data)
 {
 	if (keycode == SPACE_KEYCODE)
 		ft_change_color(data);
+	if (keycode == R_KEYCODE)
+		ft_reset(data);
 	if (keycode == I_KEYCODE)
 	{
 		data->max_iterations += 50;
