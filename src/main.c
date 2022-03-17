@@ -6,7 +6,7 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 16:28:46 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/17 03:28:49 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/17 03:42:44 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ void	ft_init_data(t_data *data)
 	data->origin = (t_coordinates){0, 0};
 	data->max_iterations = 50;
 	data->iterate = &ft_julia_set_iterate;
+	data->color = 0x581b98;
 }
 
 int	main(void)

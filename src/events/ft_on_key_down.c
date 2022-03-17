@@ -6,7 +6,7 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 20:18:38 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/17 03:31:05 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/17 03:46:05 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,10 +29,16 @@
 void	ft_change_color(t_data *data)
 {
 	static int	colors[] = {
-		0x26FC49,
 		0x88C1FA,
 		0xD9D821,
-		0x26FCB0
+		0x071a52,
+		0xfc5185,
+		0x6e3b3b,
+		0x071e3d,
+		0x3b5441,
+		0x226089,
+		0x660077,
+		0x581b98
 	};
 	static int	color_index = 0;
 
