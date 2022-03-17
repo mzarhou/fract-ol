@@ -6,7 +6,7 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/16 23:50:21 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/17 00:57:53 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/17 03:51:23 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ int	ft_julia_set_iterate(const double maped_a,
 	yy = 0;
 	while (nb_iter < data->max_iterations)
 	{
-		xx = x * x - y * y - 0.70176;
-		yy = 2 * x * y - 0.3842;
+		xx = x * x - y * y + data->julia_data.a;
+		yy = 2 * x * y + data->julia_data.b;
 		x = xx;
 		y = yy;
 		nb_iter++;

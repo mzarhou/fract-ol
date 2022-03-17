@@ -6,7 +6,7 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 16:28:46 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/17 01:03:09 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/17 04:00:05 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 #include "unistd.h"
 #include "sets/sets.h"
 #include <mlx.h>
-
 
 void	ft_render(t_data *data)
 {
@@ -44,10 +43,12 @@ void	ft_init_data(t_data *data)
 	data->win_width = 600;
 	data->win_height = 600;
 	data->zoom = 2;
-	data->x = 0;
-	data->y = 0;
+	data->origin = (t_coordinates){0, 0};
 	data->max_iterations = 50;
 	data->iterate = &ft_julia_set_iterate;
+	data->color = 0x581b98;
+	data->julia_data = (t_coordinates){-0.70176, -0.3842};
+	data->julia_set_live = 0;
 }
 
 int	main(void)
@@ -55,7 +56,6 @@ int	main(void)
 	t_data	data;
 
 	ft_init_data(&data);
-
 	data.mlx_ptr = mlx_init();
 	data.win_ptr = mlx_new_window(data.mlx_ptr, data.win_width,
 			data.win_height, "FRACT-OL");
