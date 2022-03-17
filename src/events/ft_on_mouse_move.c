@@ -6,13 +6,12 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 02:45:58 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/17 03:35:15 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/17 03:37:36 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "events/events.h"
 #include "utils/utils.h"
-#include "printf.h"
 
 // Todo: use these mapped value to render a new julia set
 int	ft_on_mouse_move(int x, int y, t_data *data)
