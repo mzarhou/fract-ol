@@ -6,7 +6,7 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 16:28:46 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/17 01:03:09 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/17 02:10:15 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,8 +44,7 @@ void	ft_init_data(t_data *data)
 	data->win_width = 600;
 	data->win_height = 600;
 	data->zoom = 2;
-	data->x = 0;
-	data->y = 0;
+	data->origin = (t_coordinates){0, 0};
 	data->max_iterations = 50;
 	data->iterate = &ft_julia_set_iterate;
 }
