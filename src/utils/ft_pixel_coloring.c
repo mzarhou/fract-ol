@@ -6,22 +6,13 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/17 01:17:46 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/17 02:09:50 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/17 02:52:33 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <math.h>
 #include "utils/utils.h"
 #include "mlx.h"
-
-double	ft_map(double value, t_interval from, t_interval to)
-{
-	return (
-		to.start + (
-			(value - from.start) * (to.end - to.start)
-			/ (from.end - from.start))
-	);
-}
 
 void	ft_pixel_coloring(const double a, const double b, t_data *data)
 {

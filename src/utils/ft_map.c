@@ -1,22 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_register_events.c                               :+:      :+:    :+:   */
+/*   ft_map.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/14 18:42:30 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/17 02:47:39 by mzarhou          ###   ########.fr       */
+/*   Created: 2022/03/17 02:52:40 by mzarhou           #+#    #+#             */
+/*   Updated: 2022/03/17 02:53:08 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "events/events.h"
-#include <mlx.h>
+#include "utils/utils.h"
 
-void	ft_register_events(t_data *data)
+double	ft_map(double value, t_interval from, t_interval to)
 {
-	mlx_hook(data->win_ptr, ON_MOUSEDOWN, 0, ft_on_mouse_down, data);
-	mlx_hook(data->win_ptr, ON_DESTROY, 0, ft_on_destroy, 0);
-	mlx_hook(data->win_ptr, ON_KEYDOWN, 0, ft_on_key_down, data);
-	mlx_hook(data->win_ptr, ON_MOUSEMOVE, 0, ft_on_mouse_move, data);
+	return (
+		to.start + (
+			(value - from.start) * (to.end - to.start)
+			/ (from.end - from.start))
+	);
 }
