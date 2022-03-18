@@ -1,5 +1,17 @@
 ODIR = obj
-SRCS = ${wildcard src/*.c} ${wildcard src/**/*.c}
+SRCS = src/events/ft_on_destroy.c \
+	src/events/ft_on_key_down.c \
+	src/events/ft_on_mouse_down.c \
+	src/events/ft_on_mouse_move.c \
+	src/events/ft_register_events.c \
+	src/main.c \
+	src/sets/ft_burning_ship_iterate.c \
+	src/sets/ft_julia_set_iterate.c \
+	src/sets/ft_mandelbrot_iterate.c \
+	src/utils/ft_atoi.c \
+	src/utils/ft_map.c \
+	src/utils/ft_mlx_pixel_put.c \
+	src/utils/ft_pixel_coloring.c
 OBJS = ${patsubst %.c, ${ODIR}/%.o, ${SRCS}}
 INC = src
 CC = cc
