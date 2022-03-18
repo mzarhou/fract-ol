@@ -6,7 +6,7 @@
 /*   By: mzarhou <mzarhou@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/17 16:28:46 by mzarhou           #+#    #+#             */
-/*   Updated: 2022/03/17 04:00:05 by mzarhou          ###   ########.fr       */
+/*   Updated: 2022/03/17 20:12:04 by mzarhou          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,21 +49,50 @@ void	ft_init_data(t_data *data)
 	data->color = 0x581b98;
 	data->julia_data = (t_coordinates){-0.70176, -0.3842};
 	data->julia_set_live = 0;
+	data->mlx_ptr = mlx_init();
+	data->win_ptr = mlx_new_window(data->mlx_ptr, data->win_width,
+			data->win_height, "FRACT-OL");
+	data->img.ptr = mlx_new_image(data->mlx_ptr,
+			data->win_width, data->win_height);
+	data->img.pixels = mlx_get_data_addr(
+			data->img.ptr, &data->img.bits_per_pixel, &data->img.line_length,
+			&data->img.endian
+			);
 }
 
-int	main(void)
+void	ft_exit(void)
+{
+	write(1, "\n\n\n", 4);
+	write(1, "1 - julia set\n", 15);
+	write(1, "2 - mandelbrot\n", 16);
+	write(1, "3 - burning ship\n", 18);
+	write(1, "\n\n\n", 4);
+	exit(0);
+}
+
+void	ft_selet_fractol(t_data *data, char *option_str)
+{
+	int	option;
+
+	option = ft_atoi(option_str);
+	if (option == 1)
+		data->iterate = &ft_julia_set_iterate;
+	else if (option == 2)
+		data->iterate = &ft_mandelbrot_iterate;
+	else if (option == 3)
+		data->iterate = &ft_burning_ship_iterate;
+	else
+		ft_exit();
+}
+
+int	main(int argc, char **argv)
 {
 	t_data	data;
 
+	if (argc < 2)
+		ft_exit();
 	ft_init_data(&data);
-	data.mlx_ptr = mlx_init();
-	data.win_ptr = mlx_new_window(data.mlx_ptr, data.win_width,
-			data.win_height, "FRACT-OL");
-	data.img.ptr = mlx_new_image(data.mlx_ptr, data.win_width, data.win_height);
-	data.img.pixels = mlx_get_data_addr(
-			data.img.ptr, &data.img.bits_per_pixel, &data.img.line_length,
-			&data.img.endian
-			);
+	ft_selet_fractol(&data, argv[1]);
 	ft_register_events(&data);
 	ft_render(&data);
 	mlx_loop(data.mlx_ptr);
